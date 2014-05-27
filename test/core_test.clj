@@ -85,3 +85,30 @@
 
 (struct-map people :age 30)
 ;> {:firstName nil, :lastName nil, :age 30)
+
+
+;; 함수 
+; 함수 네이밍컨벤션은 보통 - 로 단어구분을 한다 getName -> get-name 뭐 이런식 -_-? 
+; predicate 함수인경우는 ?를 뒤에 붙인다 -> true? nil? 
+
+; 함수정의에는 defn 을 이용
+(defn hello [] 3)
+
+(hello)
+;> 3
+
+;[] 브라켓은 인자를 정의하는 부분인데, 케이스에따라 다른동작을 하도록 만들수도 있다. 
+(defn hello 
+ "이거슨 헬로 함수"
+ ([] "인자가 없다옹")
+ ([s] s))
+
+(hello)
+;> "이거슨 헬로 함수"
+
+(hello "a")
+;> "a"
+
+; varargs 는 인자 지정할때 &로 정의할수 있다. 예를 들면 
+; [& args] <-- 가변 인자. 
+; [p1 p2 & persons] <-- 세번째인자부터는 persons에 바인딩된다. 
