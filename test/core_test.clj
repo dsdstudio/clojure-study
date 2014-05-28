@@ -112,3 +112,26 @@
 ; varargs 는 인자 지정할때 &로 정의할수 있다. 예를 들면 
 ; [& args] <-- 가변 인자. 
 ; [p1 p2 & persons] <-- 세번째인자부터는 persons에 바인딩된다. 
+
+; var, 바인딩, 이름공간  
+
+(def foo 10)
+; > #'user/foo
+
+foo
+; 10
+
+(var foo)
+; > #'user/foo
+
+; 리더 매크로로 네임스페이스 접근 
+#'foo 
+; > #'user/foo
+
+; 함수 인자 바인딩 
+(defn triple [number] (* 3 number))
+; > #'user/triple 
+
+; number 인자에 10이 바인딩되고 함수가 평가된 결과가 리턴된다. 
+(triple 10)
+; > 30 
