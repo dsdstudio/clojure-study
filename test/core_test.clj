@@ -135,3 +135,22 @@ foo
 ; number 인자에 10이 바인딩되고 함수가 평가된 결과가 리턴된다. 
 (triple 10)
 ; > 30 
+
+; 디스트럭쳐링 
+; 인자로 주는 컬렉션의 일부만 사용할때에도 전체 컬렉션을 변수에다가 바인딩해야되는데.. 
+; 예를 들면 function(obj) { dosomething(obj.x); } 
+; 인자의 키를 지정하거나 컬렉션인경우 특정 인자만 바인딩하는것이 가능하다. 
+(defn hello-author [{name :name}] 
+	(println "Hello, " name)) 
+(hello-author {:name "Melong" :age 33})
+; > Hello, Melong
+
+; let 함수를 이용해 컬렉션중 필요한부분만 바인딩하여 새로운 컬렉션을 만들어냈다. 
+(let [[x y] [1 2 3]] 
+ 	[x y])
+; > [1 2]
+
+; 앞 2개인자는 무시하고 3번째것만 바인딩하는것도 가능 
+(let [[_ _ z] [1 2 3]]
+ z)
+; > 3
