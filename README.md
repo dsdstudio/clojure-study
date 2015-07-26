@@ -12,6 +12,15 @@
 - 제어구조 
 - 메타데이터 
 
+
+## useful commands 
+
+repl 에서 테스트 실행하기 
+
+	$ lein repl
+	> (use 'clojure.test')
+	> (run-tests)
+
 ## References 
 
 - [clojure test api](http://richhickey.github.io/clojure/clojure.test-api.html)
