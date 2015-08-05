@@ -17,9 +17,11 @@
 
 repl 에서 테스트 실행하기 
 
+
 	$ lein repl
-	> (use 'clojure.test')
-	> (run-tests)
+	=> (require '[clojure.test :refer [run-tests]])
+	=> (require 'your_ns)
+	=> (run-tests)
 
 ## References 
 
